@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- 언어를 한글로 설정 -->
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 매니페스트 파일 연결, 테마색상 변경 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- 뷰포트, 파비콘 설정-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+
+    <title>PWA by JS</title>
+    <meta name='theme-color' content="#fffffff">
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #F3A530;
+            color: #ffffff;
+        }
+
+        .container {
+            height: 100%;
+            background-color: orange;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hello, PWA!</h1>
+        <img src="./hello-pwa.png" alt="">
+        <p>by javascript</p>
+    </div>
+
+    <!-- 서비스 워커 등록 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('./service_worker.js')
+                .then(function () {
+                    console.log('서비스 워커가 등록됨!');
+                })
+        }
+    </script>
+</body>
+
+</html>
